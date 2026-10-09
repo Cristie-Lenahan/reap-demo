@@ -2,6 +2,8 @@
 
 **[Open the pet-food demo](https://reap-demo.kampawng.com/)**
 
+[Watch or download the 63-second walkthrough (MP4)](media/kampawng-demo-slideshow.mp4). Seven captioned slides show the shopping steps, pending card setup and an earlier confirmed sandbox receipt. The walkthrough clearly distinguishes that earlier completion from independently unverified hosted payment approval.
+
 A small shopping demo for Milo, a fictional cat: browse pet food, choose a size, check the full delivery-inclusive price, and complete a sandbox test order. Kampawng’s supplied banner, plaid background and care-focused branding are preserved.
 
 ## Walkthrough
