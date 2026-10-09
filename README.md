@@ -76,3 +76,5 @@ Kampawng supplied the banner and branding assets. Milo is a generated illustrati
 - [Official Reap documentation](https://docs.reap.global/)
 - [Hackathon microsite](https://reap-hackathon-microsite.vercel.app/)
 - [API compatibility history](evidence/API-COMPATIBILITY.md)
+
+The live demo also has a [read-only earlier completed test order](https://reap-demo.kampawng.com/?example=1). This synthetic receipt is separate from each visitor’s cart and pending card setup. It does not place an order or prove independently tested hosted payment approval.

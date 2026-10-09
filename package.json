@@ -5,7 +5,7 @@
   "scripts": {
     "test": "node tests/model.test.js",
     "test:dom": "node --test tests/dom.test.js tests/sandbox-dom.test.mjs",
-    "test:backend": "node --test tests/backend.test.mjs tests/public-http.test.mjs tests/sessions.test.mjs",
+    "test:backend": "node --test tests/backend.test.mjs tests/public-http.test.mjs tests/sessions.test.mjs tests/example.test.mjs",
     "build": "node build.mjs",
     "preview": "node serve.mjs",
     "sandbox": "node sandbox-serve.mjs"

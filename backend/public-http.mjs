@@ -1,7 +1,7 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 import { AdapterError, fail, strict, text } from './client.mjs';
 const equal = (a, b) => typeof a === 'string' && a.length === b.length && timingSafeEqual(Buffer.from(a), Buffer.from(b));
-export function createProtectedHandler(backend, { accessCode, port = 4174, now = () => Date.now(), publicSessions = false }) {
+export function createProtectedHandler(backend, { accessCode, port = 4174, now = () => Date.now(), publicSessions = false, completedExample = null }) {
   const origin = 'https://reap-demo.kampawng.com';
   const sign = value => createHmac('sha256', accessCode).update(value).digest('base64url');
   let attempts = [], recent = [], inFlight = 0;
@@ -14,6 +14,10 @@ export function createProtectedHandler(backend, { accessCode, port = 4174, now =
       const cookie = request.headers.cookie?.match(/(?:^|;\s*)kampawng_demo=([A-Za-z0-9_.-]+)/)?.[1] || '';
       const [expiry, signature] = cookie.split('.');
       const authenticated = !!signature && Number(expiry) > now() && Number(expiry) <= now() + 8 * 3600000 && equal(signature, sign(expiry));
+      if (request.method === 'GET' && request.url === '/api/example') {
+        if (!completedExample) fail('EXAMPLE_UNAVAILABLE', 404);
+        return send(200, completedExample);
+      }
       if (request.method === 'GET' && request.url === '/api/status') {
         // Public snapshot costs no Reap requests and never contains hosted-session URLs.
         const selected = typeof backend === 'function' ? await backend(request) : backend;

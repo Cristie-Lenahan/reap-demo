@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import { loadConfig, privateDir } from './backend/config.mjs';
 import { ReapClient } from './backend/client.mjs';
 import { DemoSessions } from './backend/sessions.mjs';
+import { loadCompletedExample } from './backend/example.mjs';
 import { createProtectedHandler } from './backend/public-http.mjs';
 const port = Number(process.env.KAMPAWNG_DEMO_PORT || 4174);
 if (![4174, 4175].includes(port)) throw new Error('INVALID_DEMO_PORT');
@@ -11,7 +12,8 @@ const config = await loadConfig();
 const client = new ReapClient({ enabled: true, apiKey: config.apiKey });
 // This deployed lane always requests Reap simulated completion. It cannot opt into production.
 const sessions = await new DemoSessions({ directory: `${privateDir}/browser-sessions`, secret: config.sessionSecret, legacySecret: config.accessCode, client }).open();
-const api = createProtectedHandler(request => sessions.resolve(request), { accessCode: config.accessCode, port, publicSessions: true });
+const completedExample = await loadCompletedExample(`${privateDir}/sandbox-state/state.json`);
+const api = createProtectedHandler(request => sessions.resolve(request), { accessCode: config.accessCode, port, publicSessions: true, completedExample });
 await readFile(new URL('dist/sandbox.html', import.meta.url));
 const server = createServer(async (request, response) => {
   if (request.url?.startsWith('/api/')) return api(request, response);

@@ -71,3 +71,11 @@ test('pending checkout exposes owner approval link and hosted return reconciles 
   assert.match(document.querySelector('#sandbox-status').textContent,/waiting for you/); assert.ok(actions.includes('status')); assert.ok(!actions.includes('checkout')); assert.ok(!actions.includes('enrollmentStatus'));
   assert.equal(document.querySelector('a[href*="fixture=owner-only"]').textContent,'Approve on secure page');
 });
+
+test('earlier completed example makes only a read-only request and exposes no purchasing action', {skip:!parseHTML}, async()=>{
+ const html=await readFile(new URL('../dist/sandbox.html',import.meta.url),'utf8');const {document}=parseHTML(html);const calls=[];
+ const fetch=async(url,options)=>{calls.push({url,method:options?.method||'GET'});return Response.json({product:'Cat food',size:'2kg',receipt:{finalCents:4390,orderId:'old-order',checkoutId:'old-checkout',completedAt:'2026-10-09T09:00:00Z',careLogEntries:1,simulationRequested:true,hostedApprovalRequired:true}});};
+ runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],createContext({document,fetch,Date,console,URLSearchParams,location:{search:'?example=1'}}));
+ for(let i=0;i<100&&!document.querySelector('#sandbox-status').textContent.includes('earlier');i++)await new Promise(r=>setTimeout(r,2));
+ assert.deepEqual(calls,[{url:'/api/example',method:'GET'}]);assert.match(document.querySelector('#sandbox-flow').textContent,/separate from your current cart/);assert.equal(document.querySelector('[data-action]'),null);
+});

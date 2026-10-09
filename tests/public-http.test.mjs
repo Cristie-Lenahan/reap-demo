@@ -39,3 +39,11 @@ test('login attempts are bounded and errors contain no submitted code', async ()
   const { req } = setup();
   for (let i = 0; i < 7; i++) { const r = await req({ url: '/api/login', body: { code: 'incorrect-secret-fixture' } }); assert.equal(r.status, i < 6 ? 401 : 429); assert.doesNotMatch(JSON.stringify(r.body), /incorrect-secret-fixture/); }
 });
+
+test('read-only completed example does not resolve a browser or call a provider', async()=>{
+ let resolutions=0;const example={kind:'PREVIOUS_COMPLETED_SANDBOX_ORDER',readOnly:true,receipt:{finalCents:4390}};
+ const handler=createProtectedHandler(()=>{resolutions++;throw new Error('must not resolve');},{accessCode:code,publicSessions:true,completedExample:example});
+ const request={method:'GET',url:'/api/example',headers:{host:'reap-demo.kampawng.com'},socket:{remoteAddress:'127.0.0.1'}};
+ const response={writeHead(status){this.status=status;return this},end(body){this.body=JSON.parse(body)}};
+ await handler(request,response);assert.equal(response.status,200);assert.deepEqual(response.body,example);assert.equal(resolutions,0);
+});
