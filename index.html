@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#F6E1CF">
+  <meta name="demo-revision" content="kampawng-long-banner-2026-10-09">
+  <meta name="description" content="A simulated Kampawng care-to-checkout demo: compare pet essentials, get owner approval, and keep a care log.">
+  <title>Kampawng · Essentials</title>
+  <link rel="icon" href="assets/kampawng-app-icon.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="brand.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to care request</a>
+  <header class="topbar">
+    <a class="brand" href="#care" aria-label="Kampawng care home"><img class="brand-banner" src="assets/kampawng-top-banner.jpg" width="1920" height="400" alt="Kampawng. Every pet deserves a village."></a>
+    <div class="header-caption"><span class="brand-section">Essentials · Reap concept demo</span><span class="demo-badge">Interactive prototype</span></div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="page-heading"><div><p class="eyebrow">A LITTLE BACKUP FOR EVERYDAY CARE</p><h1>Same care. Even when plans change.</h1><p>Keep Milo’s essentials on track, with the owner in control.</p></div><button class="button secondary reset" id="reset-top">Reset demo</button></div>
+    <div class="simulation-banner"><span class="icon-slot" data-icon="flask"></span><p><strong>Simulation mode</strong> · Fictional people and products. Scripted search, stock, delivery and checkout. No live APIs or real payments.</p></div>
+    <div class="workspace">
+      <aside class="care-sidebar" aria-label="Milo's care context">
+        <section class="pet-card"><div class="pet-photo"><img src="assets/milo.png" width="1254" height="1254" alt="Synthetic portrait of Milo, a fictional ginger-and-white cat"><span class="pet-label">MILO’S CARE CIRCLE</span></div><div class="pet-info"><h2>Milo <span>4 years · indoor cat</span></h2><div class="people"><div><span class="avatar peach">AS</span><p>Asha<span>Owner</span></p></div><div><span class="avatar mint">JL</span><p>Jia<span>Caregiver</span></p></div></div></div></section>
+        <section class="context-card"><p class="eyebrow">THE CARE REQUEST</p><div class="context-row"><span class="icon-slot" data-icon="clock"></span><div><span>Needed before</span><strong id="care-deadline">10 Oct, 6 pm SGT</strong></div></div><div class="context-row"><span class="icon-slot" data-icon="wallet"></span><div><span>Maximum spend</span><strong>S$65, including delivery</strong></div></div><div class="context-row"><span class="icon-slot" data-icon="bag"></span><div><span>Approved quantity</span><strong>One 2 kg bag</strong></div></div><div class="permission" id="permission-context"></div></section>
+        <section class="agent-note"><span class="icon-slot" data-icon="spark"></span><h3>Where the agent helps</h3><p>Understand the care update, compare changing seller options, and explain tradeoffs.</p><div class="rule-note">Fixed rules check product, quantity, budget, permission and duplicates.</div></section>
+      </aside>
+      <div class="flow-column">
+        <div class="scenario-control"><label for="scenario">Try a scenario</label><select id="scenario"></select><span class="small">Demo clock: 9 Oct, 3:30 pm SGT</span></div>
+        <nav class="steps" aria-label="Purchase progress" id="steps"></nav>
+        <div id="flow"></div>
+        <section class="timeline-card" aria-label="Visible action and result log"><button class="timeline-toggle" id="timeline-toggle" aria-expanded="true" aria-controls="timeline-content"><span><span class="icon-slot" data-icon="list"></span>Actions & results</span><span id="timeline-count">0 actions</span></button><div id="timeline-content"><div id="timeline"></div><p class="small timeline-foot">Scripted agent outputs. Delivery windows are estimates from synthetic listings, never guarantees.</p></div></section>
+      </div>
+    </div>
+    <footer>Made for the people who care for pets. <span>Kampawng × agentic commerce · concept demo</span></footer>
+  </main>
+  <div id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

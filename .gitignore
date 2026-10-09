@@ -1,0 +1,28 @@
+# Credentials and local runtime state
+.env
+.env.*
+*.env
+*api-key*
+*access-code*
+*session-secret*
+sandbox-state/
+browser-sessions/
+*.log
+node_modules/
+
+# Generated files and local operational history
+dist/
+deliverables/
+BUILD-BRIEF.md
+scripts/reconcile-enrollment.mjs
+scripts/rollback*.sh
+evidence/*
+
+# Reviewed public documentation and screenshots
+!evidence/API-COMPATIBILITY.md
+!evidence/SUBMISSION-NOTE.md
+!evidence/PUBLIC-VERIFICATION.md
+!evidence/shop-product-grid.jpg
+!evidence/shop-mobile-products.jpg
+!evidence/shop-readable-copy.jpg
+!evidence/live-sandbox-receipt.jpg

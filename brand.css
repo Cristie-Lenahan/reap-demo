@@ -1,0 +1,74 @@
+/* Adapted read-only from Kampawng iOS PawTheme, PawTypography and PawComponents.
+   Public, project-owned banner/plaid/app-icon and bundled OFL display font. */
+@font-face{font-family:"Londrina Solid";src:url(assets/LondrinaSolid-Light.ttf) format("truetype");font-weight:300;font-style:normal;font-display:swap}
+:root{--village-brown:#9C5E16;--village-orange:#E8A23D;--sky:#B8EDF5;--sand:#F6E1CF;--leaf:#1F9A63;--sun:#F3C84C;--terracotta:#D84C3A;--surface-muted:#EFD7BE;--ink:#382411;--muted:#725C47;--green:var(--village-brown);--green-hover:var(--village-brown);--cream:var(--sand);--card:#FFF8EE;--border:var(--village-brown);--mint:color-mix(in srgb,var(--leaf) 14%,var(--card));--orange:var(--village-orange);--orange-ink:var(--ink);--red:var(--terracotta);--red-bg:color-mix(in srgb,var(--terracotta) 13%,var(--card));--shadow:none;--radius:12px;--font:ui-rounded,"SF Pro Rounded",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+body{background:var(--sand) url(assets/kampawng-texture-plaid.jpg) center top/1000px auto repeat}
+h1,h2,.offer-price strong,.price-large{font-family:"Londrina Solid",ui-rounded,sans-serif;font-weight:300;letter-spacing:.035em}
+h1{font-size:clamp(2rem,3.2vw,2.8rem);line-height:1.12;text-transform:uppercase}
+h2{font-size:1.65rem;text-transform:uppercase;line-height:1.2}
+h3{font-weight:700}.eyebrow,.section-label{color:var(--village-brown)}
+.topbar{height:auto;padding:0;display:block;background:#C0F3FF;border-bottom:4px solid var(--village-brown)}
+.brand{display:block;width:100%;margin:auto;min-height:44px;letter-spacing:normal;overflow:hidden}
+.brand-banner{width:100%;height:auto;display:block}
+.header-caption{display:flex;justify-content:center;align-items:center;gap:16px;flex-wrap:wrap;padding:8px 16px 12px;background:#88D1B3;color:var(--ink)}
+.brand-section{display:inline;font-size:.875rem;font-weight:700;color:var(--ink);letter-spacing:.03em}
+.demo-badge{background:var(--card);border:1px solid var(--village-brown);font-size:.75rem;color:var(--ink)}
+.button{border-radius:20px;background:var(--village-brown);font-weight:700;min-height:48px;box-shadow:none}
+.button:hover:not(:disabled){background:var(--village-brown);box-shadow:none;opacity:.92}
+.button:active:not(:disabled){box-shadow:none;transform:translateY(2px)}
+.button.secondary{background:var(--card);border:4px solid var(--village-brown);padding:9px 17px;color:var(--ink)}
+.button.secondary:hover:not(:disabled){background:var(--card)}
+.button.danger{background:var(--red-bg);border:1px solid var(--terracotta);color:var(--ink)}
+.button.danger:hover{background:var(--red-bg)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline-color:var(--ink)}
+.pet-card,.context-card,.panel,.timeline-card{border:4px solid var(--village-brown);border-radius:12px;box-shadow:none}
+.pet-photo{background:var(--leaf);border-bottom:4px solid var(--village-brown)}
+.pet-label{background:var(--village-brown);border-color:var(--card);color:white}
+.pet-info h2 span{font-family:var(--font);text-transform:none;letter-spacing:normal}
+.peach{background:var(--surface-muted)}.mint{background:var(--sky)}
+.permission,.permission.invalid{color:var(--ink)}
+.agent-note{color:var(--ink)}.rule-note{background:var(--sky);color:var(--ink);border:1px solid var(--village-brown);border-radius:12px}
+.simulation-banner{background:color-mix(in srgb,var(--sun) 38%,var(--card));border:1px solid var(--village-brown);color:var(--ink)}
+.simulation-banner .icon-slot{color:var(--village-brown)}
+.scenario-control select,.clarification select,.quantity-control input{background:var(--card);border:1px solid var(--village-brown);border-radius:12px;min-height:48px}
+.steps:before{display:none}
+.step{background:transparent;color:var(--muted)}.step-index{background:var(--card);border-color:var(--village-brown);border-width:2px;color:var(--ink)}
+.step.active .step-index{background:var(--village-brown);border-color:var(--village-brown);color:white}
+.step.done .step-index{background:var(--mint);border-color:var(--leaf);color:var(--ink)}
+.care-message{background:var(--sky);border-color:var(--village-brown);border-radius:12px}
+.product-summary{background:var(--card);border-color:var(--village-brown);border-radius:12px}
+.product-icon{background:color-mix(in srgb,var(--village-orange) 28%,var(--card));color:var(--village-brown);border-color:var(--village-brown);border-radius:12px}
+.product-summary .stock-label{color:var(--ink)}
+.status-tag{background:var(--mint);border:1px solid var(--leaf);border-radius:20px;color:var(--ink);text-transform:uppercase;letter-spacing:.03em}
+.status-tag.warn{background:color-mix(in srgb,var(--sun) 38%,var(--card));border-color:var(--village-brown);color:var(--ink)}
+.status-tag.blocked{background:var(--red-bg);border-color:var(--terracotta);color:var(--ink)}
+.notice{color:var(--ink);background:color-mix(in srgb,var(--sun) 38%,var(--card));border-color:var(--village-brown);border-radius:12px}
+.notice:focus{box-shadow:0 0 0 3px var(--village-orange)}
+.results-summary,.care-log{background:var(--mint);border-color:var(--leaf);border-radius:12px}
+.offer{border:4px solid var(--village-brown);padding:16px;border-radius:12px;background:var(--card)}
+.offer.recommended{border:4px solid var(--village-brown);padding:16px;background:var(--mint)}
+.offer.muted{background:var(--surface-muted)}
+.offer-top h3{font-family:var(--font);text-transform:none;letter-spacing:normal}
+.alternative-warning{background:color-mix(in srgb,var(--sun) 38%,var(--card));color:var(--ink);border-color:var(--village-brown);border-radius:12px}
+.checks{border-color:var(--village-brown);border-radius:12px}
+.check{background:var(--mint);border-color:var(--village-brown);color:var(--ink)}
+.check.fail{background:var(--red-bg);color:var(--ink)}
+.check .icon-slot{color:var(--leaf)}.check.fail .icon-slot{color:var(--terracotta)}
+.checkout-shell{border:4px solid var(--village-brown);border-radius:12px;background:var(--card)}
+.checkout-brand{background:var(--sky);color:var(--ink)}
+.checkout-disclaimer{background:var(--surface-muted);border-radius:12px}
+.owner-pill{background:var(--sky);color:var(--ink);border:1px solid var(--village-brown)}
+.receipt-paper{background:var(--card);border-color:var(--village-brown);border-radius:12px}
+.success-icon{background:var(--mint);color:var(--leaf);border:1px solid var(--leaf)}
+.timeline-item .timeline-number{background:var(--sky);color:var(--ink)}
+@media(max-width:740px){
+ .topbar{height:auto;padding:0}.brand{width:100%}.brand-banner{height:180px;object-fit:cover;object-position:center}.header-caption{gap:8px;padding:8px 12px 10px}
+ .brand-section{font-size:.75rem}.demo-badge{font-size:.6875rem;padding:4px 8px}
+ .page-heading h1{font-size:1.95rem}.panel h2{font-size:1.55rem}.pet-info h2{font-size:1.5rem}
+ .panel{border-radius:12px;padding:16px}.context-card{padding:12px 9px}
+ .agent-note{background:var(--sky);border-color:var(--village-brown);border-radius:12px}
+ .agent-note .rule-note{background:var(--card);color:var(--ink)}
+ .offer,.offer.recommended{padding:14px}.step-index{border-width:1px}
+ .page-heading .reset{padding:6px 8px}.receipt-header h2{font-size:1.8rem}
+}
+@media(max-width:380px){.brand-section{display:inline}.page-heading h1{font-size:1.75rem}}
